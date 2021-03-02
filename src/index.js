@@ -22,7 +22,7 @@ const stopBtn = document.querySelector('[data-action="stop"]');
 const body = document.querySelector('body');
 startBtn.addEventListener('click', startChangeColor);
 stopBtn.addEventListener('click', stopChangeColor);
-let interval;
+let interval = null;
 
 const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -42,7 +42,7 @@ function startChangeColor() {
   }, 2000);
 }
 function stopChangeColor() {
-  stopBtn.removeAttribute('disabled');
+  startBtn.removeAttribute('disabled');
   clearInterval(interval);
   console.log('Остановлен');
 }
